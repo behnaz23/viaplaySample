@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.viaplay.viewmodel.ViaPlaySectionsViewModel" alias="mainModel"/>
+        <variable
+            name="sectionModel"
+            type="mainModel"/>
+    </data>
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.MainActivity">
+
+        <include layout="@layout/viaplay_action_bar" bind:title="@{@string/main_activity_title}"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="56dp"
+            android:id="@+id/section_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

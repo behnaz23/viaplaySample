@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import
+            alias="section"
+            type="com.viaplay.livedata.SectionPreview" />
+
+        <import
+            alias="clickListener"
+            type="com.viaplay.view.SectionListItemClickListener" />
+
+        <variable
+            name="item"
+            type="section" />
+
+        <variable
+            name="listener"
+            type="clickListener" />
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:clickable="true"
+        android:onClick="@{(view)-> listener.onSectionClickedListener(view, item)}"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/images"
+            android:transitionName="sectionLogoTransition"
+            android:id="@+id/section_logo"
+            />
+
+        <android.support.v7.widget.ContentFrameLayout
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.title}"
+                    android:textSize="16dp"
+                    android:typeface="sans"
+                     />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="bottom"/>
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.name}"
+                    android:textSize="12dp"
+                    android:typeface="serif" />
+            </android.support.v7.widget.LinearLayoutCompat>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#6c6c6c"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"/>
+        </android.support.v7.widget.ContentFrameLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>
